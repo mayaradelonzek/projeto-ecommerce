@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Pessoa {
-    private Contato contato;
-    private Endereco endereco;
+    protected Contato contato;
+    protected Endereco endereco;
+    protected List<String> mensagem = new ArrayList<>();
 
     public Pessoa(Contato contato, Endereco endereco) {
         this.contato = contato;
@@ -14,4 +18,6 @@ public abstract class Pessoa {
     public Endereco getEndereco() {
         return endereco;
     }
+
+    public abstract void validar();
 }

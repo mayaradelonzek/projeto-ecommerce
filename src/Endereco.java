@@ -45,4 +45,8 @@ public class Endereco {
     public String getEstado() {
         return estado;
     }
+
+    public void validar() {
+        
+    }
 }
