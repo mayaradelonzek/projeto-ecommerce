@@ -19,5 +19,5 @@ public abstract class Pessoa {
         return endereco;
     }
 
-    public abstract void validar();
+    protected abstract void validar();
 }

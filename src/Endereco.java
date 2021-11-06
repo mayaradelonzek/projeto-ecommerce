@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Endereco {
     private String rua;
     private String numero;
@@ -15,7 +18,7 @@ public class Endereco {
         this.cep = cep;
         this.cidade = cidade;
         this.estado = estado;
-        //validar() TODO fazer validacao dos campos obrigatorios
+        validar();
     }
 
     public String getRua() {
@@ -46,7 +49,46 @@ public class Endereco {
         return estado;
     }
 
-    public void validar() {
-        
+    protected List<String> validar() {
+        List<String> mensagem = new ArrayList<>();
+
+        if (this.rua == null || this.rua.isBlank()) {
+            mensagem.add("A rua deve ser informada.");
+        } else if (this.rua != null && this.rua.length() > 100) {
+            mensagem.add("Tamanho do campo rua invalido.");
+        }
+
+        if (this.bairro == null || this.bairro.isBlank()) {
+            mensagem.add("O bairro deve ser informado.");
+        } else if (this.bairro != null && this.bairro.length() > 50) {
+            mensagem.add("Tamanho do campo bairro invalido.");
+        }
+
+        if (this.cep == null || this.cep.isBlank()) {
+            mensagem.add("O cep deve ser informado.");
+        } else if (this.cep != null && this.cep.length() > 10) {
+            mensagem.add("Tamanho do campo cep invalido.");
+        }
+
+        if (this.cidade == null || this.cidade.isBlank()) {
+            mensagem.add("A cidade deve ser informada.");
+        } else if (this.cidade != null && this.cidade.length() > 50) {
+            mensagem.add("Tamanho do campo cidade invalido.");
+        }
+
+        if (this.estado == null || this.estado.isBlank()) {
+            mensagem.add("O estado deve ser informado.");
+        } else if (this.estado != null && this.estado.length() > 2) {
+            mensagem.add("Tamanho do campo estado invalido.");
+        }
+
+        if (this.numero.length() > 6) {
+            mensagem.add("Tamanho do campo numero invalido.");
+        }
+
+        if (this.complemento.length() > 120) {
+            mensagem.add("Tamanho do campo complemento invalido.");
+        }
+        return mensagem;
     }
 }
