@@ -5,6 +5,7 @@ public abstract class Pessoa {
     protected Contato contato;
     protected Endereco endereco;
     protected List<String> mensagem = new ArrayList<>();
+    protected List<String> validacaoTamanho = new ArrayList<>();
 
     public Pessoa(Contato contato, Endereco endereco) {
         this.contato = contato;
