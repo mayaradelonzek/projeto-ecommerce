@@ -30,17 +30,13 @@ public class Cliente extends Pessoa {
             mensagem.add("Tamanho do campo cpf invalido.");
         }
 
-        mensagem.addAll(getEndereco().validar());
-        mensagem.addAll(getContato().validar());
+        if (this.contato == null) {
+            mensagem.add("O contato deve ser informado.");
+        }
 
-
-//        if (this.contato == null) {
-//            mensagem.add("O contato deve ser informado.");
-//        }
-//
-//        if (this.endereco == null) {
-//            mensagem.add("O endereco deve ser informado.");
-//        }
+        if (this.endereco == null) {
+            mensagem.add("O endereco deve ser informado.");
+        }
 
         if (!mensagem.isEmpty()) {
             throw new IllegalArgumentException(mensagem.toString());

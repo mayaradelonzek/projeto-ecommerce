@@ -21,7 +21,7 @@ public class ClienteTest {
             Cliente testerson = new Cliente(null, null, "", "");
 
         } catch (Exception e) {
-            String mensagem = "[O email deve ser informado., O telefone deve ser informado., A rua deve ser informada., O bairro deve ser informado., O cep deve ser informado., A cidade deve ser informada., O estado deve ser informado., O nome deve ser informado., O cpf deve ser informado.]";
+            String mensagem = "[O nome deve ser informado., O cpf deve ser informado., O contato deve ser informado., O endereco deve ser informado.]";
             Assert.assertEquals(mensagem, e.getMessage());
         }
     }
