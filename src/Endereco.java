@@ -49,7 +49,7 @@ public class Endereco {
         return estado;
     }
 
-    protected List<String> validar() {
+    protected void validar() {
         List<String> mensagem = new ArrayList<>();
 
         if (this.rua == null || this.rua.isBlank()) {
@@ -89,6 +89,9 @@ public class Endereco {
         if (this.complemento.length() > 120) {
             mensagem.add("Tamanho do campo complemento invalido.");
         }
-        return mensagem;
+
+        if (!mensagem.isEmpty()) {
+            throw new IllegalArgumentException(mensagem.toString());
+        }
     }
 }
