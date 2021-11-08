@@ -20,4 +20,16 @@ public class ContatoTest {
             Assert.assertEquals(mensagem, e.getMessage());
         }
     }
+
+    @Test
+    public void deveValidarContatoComTamanhoDeCamposInvalidos() {
+        try {
+            Helper helper = new Helper();
+            String tamanhoInvalido = helper.gerarString(101);
+            Contato contato = new Contato(tamanhoInvalido, tamanhoInvalido);
+        } catch (Exception e) {
+            String mensagem = "[Tamanho do campo email invalido., Tamanho do campo telefone invalido.]";
+            Assert.assertEquals(mensagem, e.getMessage());
+        }
+    }
 }

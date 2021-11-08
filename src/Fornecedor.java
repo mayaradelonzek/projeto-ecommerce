@@ -21,13 +21,13 @@ public class Fornecedor extends Pessoa {
         if (this.nomeFantasia == null || this.nomeFantasia.isBlank()) {
             mensagem.add("O nomeFantasia deve ser informado.");
         } else if (this.nomeFantasia != null && this.nomeFantasia.length() > 100) {
-            validacaoTamanho.add("Tamanho do campo nomeFantasia invalido.");
+            mensagem.add("Tamanho do campo nomeFantasia invalido.");
         }
 
         if (this.cnpj == null || this.cnpj.isBlank()) {
             mensagem.add("O cnpj deve ser informado.");
         } else if (this.cnpj != null && this.cnpj.length() > 20) {
-            validacaoTamanho.add("Tamanho do campo cnpj invalido.");
+            mensagem.add("Tamanho do campo cnpj invalido.");
         }
 
         if (this.contato == null) {
@@ -40,10 +40,6 @@ public class Fornecedor extends Pessoa {
 
         if (!mensagem.isEmpty()) {
             throw new IllegalArgumentException(mensagem.toString());
-        }
-
-        if (!validacaoTamanho.isEmpty()) {
-            throw new IllegalArgumentException(validacaoTamanho.toString());
         }
     }
 }

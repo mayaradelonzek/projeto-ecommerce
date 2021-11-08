@@ -21,13 +21,13 @@ public class Cliente extends Pessoa {
         if (this.nome == null || this.nome.isBlank()) {
             mensagem.add("O nome deve ser informado.");
         } else if (this.nome != null && this.nome.length() > 100) {
-            validacaoTamanho.add("Tamanho do campo nome invalido.");
+            mensagem.add("Tamanho do campo nome invalido.");
         }
 
         if (this.cpf == null || this.cpf.isBlank()) {
             mensagem.add("O cpf deve ser informado.");
         } else if (this.cpf != null && this.cpf.length() > 20) {
-            validacaoTamanho.add("Tamanho do campo cpf invalido.");
+            mensagem.add("Tamanho do campo cpf invalido.");
         }
 
         if (this.contato == null) {
@@ -40,10 +40,6 @@ public class Cliente extends Pessoa {
 
         if (!mensagem.isEmpty()) {
             throw new IllegalArgumentException(mensagem.toString());
-        }
-
-        if (!validacaoTamanho.isEmpty()) {
-            throw new IllegalArgumentException(validacaoTamanho.toString());
         }
     }
 }

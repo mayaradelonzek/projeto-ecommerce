@@ -24,4 +24,16 @@ public class EnderecoTest {
             Assert.assertEquals(mensagem, e.getMessage());
         }
     }
+
+    @Test
+    public void deveValidarEnderecoComTamanhoDeCamposInvalidos() {
+        try {
+            Helper helper = new Helper();
+            String tamanhoInvalido = helper.gerarString(121);
+            Endereco endereco = new Endereco(tamanhoInvalido, tamanhoInvalido, tamanhoInvalido, tamanhoInvalido, tamanhoInvalido, tamanhoInvalido, tamanhoInvalido);
+        } catch (Exception e) {
+            String mensagem = "[Tamanho do campo rua invalido., Tamanho do campo bairro invalido., Tamanho do campo cep invalido., Tamanho do campo cidade invalido., Tamanho do campo estado invalido., Tamanho do campo numero invalido., Tamanho do campo complemento invalido.]";
+            Assert.assertEquals(mensagem, e.getMessage());
+        }
+    }
 }
