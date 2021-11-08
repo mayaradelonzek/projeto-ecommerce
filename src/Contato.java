@@ -19,7 +19,7 @@ public class Contato {
         return telefone;
     }
 
-    protected List<String> validar() {
+    protected void validar() {
         List<String> mensagem = new ArrayList<>();
 
         if (this.email == null || this.email.isBlank()) {
@@ -34,6 +34,8 @@ public class Contato {
             mensagem.add("Tamanho do campo telefone invalido.");
         }
 
-        return mensagem;
+        if (!mensagem.isEmpty()) {
+            throw new IllegalArgumentException(mensagem.toString());
+        }
     }
 }
