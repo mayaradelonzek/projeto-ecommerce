@@ -9,8 +9,8 @@ public class Item {
     public Item(Produto produto, int quantidade) {
         this.produto = produto;
         this.quantidade = quantidade;
-        getValorTotalItem();
         validar();
+        this.valorTotalItem = getValorTotalItem();
     }
 
     public Produto getProduto() {
@@ -31,8 +31,12 @@ public class Item {
             mensagem.add("O produto deve ser informado.");
         }
 
-        if (this.quantidade == 0) {
-            mensagem.add("A quantidade deve ser informada");
+        if (this.quantidade <= 0) {
+            mensagem.add("Necessario adicionar pelo menos um item.");
+        }
+
+        if (!mensagem.isEmpty()) {
+            throw new IllegalArgumentException(mensagem.toString());
         }
     }
 }
