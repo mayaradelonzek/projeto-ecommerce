@@ -5,11 +5,20 @@ public class Produto {
     private String nome;
     private String descricao;
     private Double valorUnitario;
+    private int id;
 
     public Produto(String nome, String descricao, Double valorUnitario) {
         this.nome = nome;
         this.descricao = descricao;
         this.valorUnitario = valorUnitario;
+        validar();
+    }
+
+    public Produto(String nome, String descricao, Double valorUnitario, int id) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valorUnitario = valorUnitario;
+        this.id = id;
         validar();
     }
 
@@ -23,6 +32,10 @@ public class Produto {
 
     public Double getValorUnitario() {
         return valorUnitario;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void validar() {

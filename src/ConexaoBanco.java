@@ -9,7 +9,7 @@ public class ConexaoBanco {
     static {
         String url = "jdbc:mysql://localhost:3306/projeto_final_lp1";
         String user = "root";
-        String pass = "";
+        String pass = "Makw05608!";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conexao = DriverManager.getConnection(url, user, pass);

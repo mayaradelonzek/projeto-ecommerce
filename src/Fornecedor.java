@@ -9,7 +9,7 @@ public class Fornecedor extends Pessoa {
         validar();
     }
 
-    public Fornecedor(Contato contato, Endereco endereco, Integer id, String nomeFantasia, String cnpj) {
+    public Fornecedor(Contato contato, Endereco endereco, int id, String nomeFantasia, String cnpj) {
         super(contato, endereco, id);
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;

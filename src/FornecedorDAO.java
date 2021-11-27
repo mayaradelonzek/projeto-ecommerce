@@ -19,7 +19,7 @@ public class FornecedorDAO implements GenericDAO<Fornecedor, Integer>{
                 throw new IllegalArgumentException("Fornecedor ja cadastrado");
             }
 
-            String sql = "insert into Fornecedor (nomeFantasia, cnpj, email, telefone, rua, numero, bairro, complemento, cep, cidade, estado) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into fornecedor (nomeFantasia, cnpj, email, telefone, rua, numero, bairro, complemento, cep, cidade, estado) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, model.getNomeFantasia());
             preparedStatement.setString(2, model.getCnpj());
@@ -51,7 +51,7 @@ public class FornecedorDAO implements GenericDAO<Fornecedor, Integer>{
 
     private boolean existeFornecedor(String cnpj, String nomeFantasia) {
         try {
-            String sql = "select * from Fornecedor f where f.cnpj = ? and f.nomeFantasia = ?";
+            String sql = "select * from fornecedor f where f.cnpj = ? and f.nomeFantasia = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, cnpj);
             preparedStatement.setString(2, nomeFantasia);
@@ -64,7 +64,7 @@ public class FornecedorDAO implements GenericDAO<Fornecedor, Integer>{
 
     public void deletarTodos() {
         try {
-            PreparedStatement preparedStatement = conexao.prepareStatement("DELETE FROM Fornecedor");
+            PreparedStatement preparedStatement = conexao.prepareStatement("DELETE FROM fornecedor");
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();

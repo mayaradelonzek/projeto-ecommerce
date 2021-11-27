@@ -18,6 +18,15 @@ public class Pedido {
         validar();
     }
 
+    public Pedido(LocalDateTime dateCompra, Fornecedor fornecedor, Cliente cliente, Double valorFrete, List<Item> itens) {
+        this.dateCompra = dateCompra;
+        this.fornecedor = fornecedor;
+        this.cliente = cliente;
+        this.valorFrete = valorFrete;
+        this.itens = itens;
+        validar();
+    }
+
     public LocalDateTime getDateCompra() {
         return dateCompra;
     }
@@ -36,6 +45,10 @@ public class Pedido {
 
     public Double getValorTotal() {
         return getValorTotalItens() + getValorFrete();
+    }
+
+    public List<Item> getItens() {
+        return itens;
     }
 
     public Double getValorTotalItens() {

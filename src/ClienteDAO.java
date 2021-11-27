@@ -21,7 +21,7 @@ public class ClienteDAO implements GenericDAO<Cliente, Integer>{
                 throw new IllegalArgumentException("Cliente ja cadastrado");
             }
 
-            String sql = "insert into Cliente (nome, cpf, email, telefone, rua, numero, bairro, complemento, cep, cidade, estado) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into cliente (nome, cpf, email, telefone, rua, numero, bairro, complemento, cep, cidade, estado) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, model.getNome());
             preparedStatement.setString(2, model.getCpf());
@@ -46,7 +46,7 @@ public class ClienteDAO implements GenericDAO<Cliente, Integer>{
         List<Cliente> clientesCadastrados = new ArrayList<Cliente>();
 
         try {
-            PreparedStatement preparedStatement = conexao.prepareStatement("select * from Cliente");
+            PreparedStatement preparedStatement = conexao.prepareStatement("select * from cliente");
             ResultSet results = preparedStatement.executeQuery();
             while (results.next()) {
                 String nome = results.getString("nome");
@@ -80,7 +80,7 @@ public class ClienteDAO implements GenericDAO<Cliente, Integer>{
 
     private boolean existeCliente(String cpf, String nome) {
         try {
-            String sql = "select * from Cliente c where c.cpf = ? and c.nome = ?";
+            String sql = "select * from cliente c where c.cpf = ? and c.nome = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, cpf);
             preparedStatement.setString(2, nome);
@@ -93,7 +93,7 @@ public class ClienteDAO implements GenericDAO<Cliente, Integer>{
 
     public void deletarTodos() {
         try {
-            PreparedStatement preparedStatement = conexao.prepareStatement("DELETE FROM Cliente");
+            PreparedStatement preparedStatement = conexao.prepareStatement("DELETE FROM cliente");
             preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();

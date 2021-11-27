@@ -4,7 +4,7 @@ import java.util.List;
 public abstract class Pessoa {
     protected Contato contato;
     protected Endereco endereco;
-    protected Integer id;
+    protected int id;
     protected List<String> mensagem = new ArrayList<>();
 
     public Pessoa(Contato contato, Endereco endereco) {
@@ -12,7 +12,7 @@ public abstract class Pessoa {
         this.endereco = endereco;
     }
 
-    public Pessoa(Contato contato, Endereco endereco, Integer id) {
+    public Pessoa(Contato contato, Endereco endereco, int id) {
         this(contato, endereco);
         this.id = id;
     }
@@ -25,7 +25,7 @@ public abstract class Pessoa {
         return endereco;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 

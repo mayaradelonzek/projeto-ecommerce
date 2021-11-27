@@ -9,7 +9,7 @@ public class Cliente extends Pessoa {
         validar();
     }
 
-    public Cliente(Contato contato, Endereco endereco, Integer id, String nome, String cpf) {
+    public Cliente(Contato contato, Endereco endereco, int id, String nome, String cpf) {
         super(contato, endereco, id);
         this.nome = nome;
         this.cpf = cpf;
